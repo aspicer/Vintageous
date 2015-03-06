@@ -749,7 +749,7 @@ class ExSubstitute(sublime_plugin.TextCommand):
 
         replace_count = 0 if (flags and 'g' in flags) else 1
 
-        target_region = get_region_by_range(self.view, line_range=line_range, as_lines=True)
+        target_region = get_region_by_range(self.view, line_range=line_range, as_lines=False)
         for r in reversed(target_region):
             line_text = self.view.substr(self.view.line(r))
             rv = re.sub(pattern, replacement, line_text, count=replace_count)
